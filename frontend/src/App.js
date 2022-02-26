@@ -1,18 +1,14 @@
-import Main from './Components/Main/Main'
-import {Provider} from 'react-redux'
-import {BrowserRouter} from 'react-router-dom'
-import {ConfigureStore} from './Redux/configureStore'
+import React from "react";
+import LandingPage from "./pages/LandingPage";
+import FooterComponent from "./components/FooterComponent";
 
-const store = ConfigureStore();
-
-function App() {
-
+function App(){
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Main/>
-      </BrowserRouter>
-    </Provider>
+    <>
+      <LandingPage />
+      
+      <FooterComponent />
+    </>
   );
 }
 
