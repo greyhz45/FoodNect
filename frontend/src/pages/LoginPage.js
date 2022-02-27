@@ -12,7 +12,7 @@ function LoginPage(){
           <input type="password" placeholder="Password" />
         </div>
         <div className="text-center p-3">
-          <button type="submit" value="Login" className="btn fn-btn-pink">Login</button>
+          <button type="submit" value="Login" className="btn fn-btn-pink">Log In</button>
           <p className="mt-3">
             Don't have a account ?
             <a href="#" className="fn-signup-link-green">Sign Up</a>
