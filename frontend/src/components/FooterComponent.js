@@ -3,7 +3,7 @@
 import React from 'react'
 
 function FooterComponent() {
-  const year = (new Date()).getFullYear.toString
+  const year = (new Date()).getFullYear()
   return (
     <>
       <div className="fn-footer">

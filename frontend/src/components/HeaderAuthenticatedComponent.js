@@ -2,33 +2,23 @@
 //inject to HeaderWraperComponent if not authenticated
 
 import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-// import {fames} from "@fortawesome/free-solid-svg-icons";
-import {faGoogle, faTwitter, faLinkedin} from "@fortawesome/free-brands-svg-icons"
+import {FaEnvelopeOpenText, FaBell, FaCalendarAlt, FaSlidersH} from "react-icons/fa"
 
 export default function HeaderAuthenticatedComponent() {
   return (
     <>
-        <ul>
-            <li>
-                <span className="nav nav-item" alt="Message">
-                    <FontAwesomeIcon icon="fa-solid fa-envelope-open-text" />
-                </span>
+        <ul className="fn-tools-bar">
+            <li className="fn-selected-tool">
+                <FaEnvelopeOpenText />
             </li>
             <li>
-                <span className="nav nav-item" alt="Notification">
-                    <FontAwesomeIcon icon="fa-solid fa-bell-on" />
-                </span>
+                <FaBell />
             </li>
             <li>
-                <span className="nav nav-item" alt="Meeting">
-                    <FontAwesomeIcon icon="fa-solid fa-calendar-lines" />
-                </span>
+                <FaCalendarAlt />
             </li>
-            <li>
-                <span className="nav nav-item" alt="Setting">
-                    <FontAwesomeIcon icon="fa-solid fa-sliders-up" />
-                </span>
+            <li style={{transform: "rotate(90deg)"}}>
+                <FaSlidersH />
             </li>
         </ul>
     </>

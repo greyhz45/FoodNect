@@ -138,9 +138,12 @@
     push to new branch: add and stage all changes then: 
     git clone -b branch_name main_repo_url  => clone specific branch (branch_name), clones the main branch too
     git pull                                => pull specific branch (git checkout first)
+    git push                                => push to specific branch (git checkout first)
     git branch -a                           => view all git branches in local machine
     git checkout branch_name                => switch between local branches (will reflect in IDE immediately)
     git push origin:branch_name             => origin: the remote repository (origin: main/master, branch_name: new branch name)
+    ... ... ...
+    example:... /food-nect/frontend (surendra) => all pull and push will be sent to branch name = surendra
 
 8. 
 

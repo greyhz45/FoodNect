@@ -14,9 +14,9 @@ function HeaderWraperComponent() {
           <div className="d-flex">
             <div className="fn-logo text-white">FN</div>
             <div className="d-flex justify-content-end align-items-center flex-grow-1">
-              {!isAuthenticated && <HeaderUnauthenticatedComponent />}
+              {isAuthenticated && <HeaderUnauthenticatedComponent />}
 
-              {isAuthenticated && <HeaderAuthenticatedComponent />}
+              {!isAuthenticated && <HeaderAuthenticatedComponent />}
             </div>
           </div>
         </div>

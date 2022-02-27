@@ -17,7 +17,7 @@ body {
 html,
 body,
 #root {
-  height: 100%;
+  min-height: 100vh;
 }
 
 ::placeholder {
@@ -82,12 +82,11 @@ body,
 
 .fn-container-login {
   display: flex;
-  background: white;
+  background: #fff;
   box-sizing: border-box;
   padding: 30px 40px;
   justify-content: center;
   flex-direction: column;
-  min-height: 60vh;
   border-radius: 10px;
   max-width: 600px;
   margin: 2rem auto;
@@ -118,6 +117,7 @@ body,
   position: relative;
   display: inline-block;
   margin-left: 1rem;
+  cursor: pointer;
 }
 .fn-signup-link-green:active,
 .fn-signup-link-green:hover {
@@ -144,4 +144,39 @@ body,
   padding: 1rem 0;
   top: 100%;
   left: 50%;
+}
+
+.fn-tools-bar {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+.fn-tools-bar li {
+  margin-left: 1rem;
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.fn-tools-bar li:hover {
+  background-color: #78bafe;
+}
+.fn-tools-bar>li:hover svg{
+  fill: #000;
+}
+
+.fn-tools-bar svg {
+  height: 35px;
+  width: 35px;
+}
+
+.fn-selected-tool{
+  background-color: #d63384;
+}
+
+.fn-text-petite {
+  margin: 0;
+  font-size: 12px;
+  text-align: left;
 }
