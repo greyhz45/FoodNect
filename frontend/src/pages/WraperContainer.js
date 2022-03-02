@@ -1,12 +1,32 @@
-//a wraper container to house all dynamic or authorized pages/components
+//a wraper container to house all dynamic pages/components
 
-import React from 'react'
+import React, { useState } from "react";
+import LoginPage from "./LoginPage";
+import SignupPage from "./SignupPage";
+import { Routes, Route } from "react-router-dom";
+import TermsAndConditions from "../components/TermsAndConditions";
+import NotFound404 from "./NotFound404";
+
 
 function WraperContainer() {
+
+  const [showLogin, setShowLogin] = useState(true)
+
+  //pass this function to login and signup component
+  //NOTE: this is not routing (just showing and hiding component)
+  
   return (
-    <>
-        wraper container
-    </>
+    <div id="fn-wraper-container-main">
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="signup" element={<SignupPage />} /> 
+        <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+
+
+        <Route path="*" element={<NotFound404 />} />
+      </Routes>
+    </div>
   )
 }
 export default WraperContainer

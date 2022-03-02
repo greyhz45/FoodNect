@@ -145,5 +145,25 @@
     ... ... ...
     example:... /food-nect/frontend (surendra) => all pull and push will be sent to branch name = surendra
 
-8. 
+8. react-router-dom:
+    Use Link to let the user change the URL or useNavigate to do it yourself (like after form submissions)
+    <Link to="/about">About</Link>
+    //if "/" is not present in the "to" property then routes are added to existing routes meaning "xx" then "yy" may become "/xx/yy"
+    ... ... ...
+    Where do I put <BrowserRouter>, <Routes> and <Route path="my-route" element={<ComponentX />} /> ?
+    <BrowserRouter>: 
+        all routes must be inside browser router and there can be only one browser router so place it at root level
+    <Routes>: 
+        all route must be wrapped inside routes. there can be more than one routes and route so you can place them togethere wherever you need the routing
+    <Route>:
+        where you want to render the components
+    ... ... ...
+    <BrowserRouter>
+        <Routes>
+            <Route />
+            <Route />
+        </Routes>
+    </BrowserRouter>
+
+9. 
 

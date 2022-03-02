@@ -1,13 +1,21 @@
+//main component
+
 import React from "react";
-import LandingPage from "./pages/LandingPage";
+import { BrowserRouter } from "react-router-dom";
+import HeaderWraperComponent from "./components/HeaderWraperComponent";
+import WraperContainer from "./pages/WraperContainer";
 import FooterComponent from "./components/FooterComponent";
 
 function App(){
   return (
     <>
-      <LandingPage />
-      
-      <FooterComponent />
+      <BrowserRouter>
+          <HeaderWraperComponent />
+
+          <WraperContainer />
+
+          <FooterComponent />
+      </BrowserRouter>
     </>
   );
 }

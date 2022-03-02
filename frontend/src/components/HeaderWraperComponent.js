@@ -10,7 +10,7 @@ function HeaderWraperComponent() {
   return (
     <>
       <div className="fluid-container p-3 fn-header-dark">
-        <div className="container">
+        <div id="header-wrapper-inner" className="container">
           <div className="d-flex">
             <div className="fn-logo text-white">FN</div>
             <div className="d-flex justify-content-end align-items-center flex-grow-1">
