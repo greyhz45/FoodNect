@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import HeaderWraperComponent from "./components/HeaderWraperComponent";
 import WraperContainer from "./pages/WraperContainer";
 import FooterComponent from "./components/FooterComponent";
+import LikeDislike from "./components/LikeDislike";
 
 function App(){
   return (
@@ -13,6 +14,7 @@ function App(){
           <HeaderWraperComponent />
 
           <WraperContainer />
+        <LikeDislike />
 
           <FooterComponent />
       </BrowserRouter>
