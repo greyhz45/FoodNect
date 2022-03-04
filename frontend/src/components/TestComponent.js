@@ -26,7 +26,7 @@ export default function Test() {
         {/*  */}
             <i className='fa fa-pencil fa-lg'></i> Send Link
         </Button>
-        <SendLink trigger={buttonPopup} setTrigger={setButtonPopup}/>
+        <SendLink trigger={buttonPopup} setTrigger={setButtonPopup} decideBy="tommorow"/>
     </>
   )
 }
