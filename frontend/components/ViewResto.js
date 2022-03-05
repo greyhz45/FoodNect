@@ -4,7 +4,6 @@ import { Card, CardImg, CardImgOverlay,
 import { Container, Button, Label, Col, Row } from 'reactstrap';
 import { Control, Form, Errors, LocalForm } from 'react-redux-form';
 
-// import { Link } from 'react-router-dom';
 // import { Control, Errors } from 'react-redux-form';
 
 function RenderResto({resto, index}) {
