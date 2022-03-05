@@ -1,18 +1,22 @@
-import Main from './Components/Main/Main'
-import {Provider} from 'react-redux'
-import {BrowserRouter} from 'react-router-dom'
-import {ConfigureStore} from './Redux/configureStore'
+//main component
 
-const store = ConfigureStore();
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import HeaderWraperComponent from "./components/HeaderWraperComponent";
+import WraperContainer from "./pages/WraperContainer";
+import FooterComponent from "./components/FooterComponent";
 
-function App() {
-
+function App(){
   return (
-    <Provider store={store}>
+    <>
       <BrowserRouter>
-        <Main/>
+          <HeaderWraperComponent />
+
+          <WraperContainer />
+
+          <FooterComponent />
       </BrowserRouter>
-    </Provider>
+    </>
   );
 }
 
