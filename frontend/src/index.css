@@ -289,3 +289,18 @@ body,
     display: block;
   }
 }
+
+/* for View Restaurant**/
+.carddiv {
+  margin-top: 10px;
+}
+
+.cardImg {
+  width: 350px;
+  height: 100px;
+}
+
+.cardTitle {
+  color: black;
+}
+/* end **/

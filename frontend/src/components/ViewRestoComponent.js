@@ -53,9 +53,11 @@ export default class ViewResto extends Component {
         super(props);
 
         this.state = {
-            resto: this.props.restaurants
+            resto: this.props.restaurants,
+            value: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSendLinkButton = this.handleSendLinkButton.bind(this);
     }
 
     handleSubmit(values) {
@@ -63,6 +65,14 @@ export default class ViewResto extends Component {
         const filteredResto = this.props.restaurants.filter(resto => {return resto.type === values.restoType} )
         console.log(filteredResto)
         this.setState({resto: filteredResto});
+    }
+
+    handleSendLinkButton() {
+
+        console.log("hndlesendlinkbutt resto: " + this.state.resto)
+        if(this.state.resto != null)
+            console.log("test")
+//        <JaspersCompo restaurants={this.state.resto} />
     }
     
     render() {
@@ -93,6 +103,7 @@ export default class ViewResto extends Component {
                             </Col>
                             <Col>
                             <Button type="submit" color="primary">Filter</Button>
+                            <Button onClick={this.handleSendLinkButton} color="primary">Send Link</Button>
                             </Col>
                             </Row>
                         

@@ -1,4 +1,4 @@
-export const LEADERS = [
+export const RESTOS = [
     {
       id: 0,
       name: 'Vic Resto',

@@ -1,6 +1,7 @@
 package com.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor @AllArgsConstructor
+@Data
 @Entity
 @Table(name="link_tbl")
 public class LinkInvite {

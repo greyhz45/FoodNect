@@ -7,4 +7,6 @@ import com.entities.LinkInvite;
 
 public interface LinkInviteRepository extends JpaRepository<LinkInvite, Integer> {
     List<LinkInvite> findByLinkId(String linkId);
+
+    LinkInvite save(LinkInvite linkInvite);
 }
