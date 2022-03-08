@@ -15,7 +15,7 @@ function FooterComponent() {
         <div className="text-center">
           <div className="container">
             <p className="p-2 m-0">&copy; copy right ({year})</p>
-            <p className="fn-footer-creators">made with ♡ by Surendra, Grace, Jasper &amp; Vick</p>
+            <p className="fn-footer-creators">made with ♡ by Surendra, Mary, Jasper &amp; Vick</p>
           </div>
         </div>
       </div>
