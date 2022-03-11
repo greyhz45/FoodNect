@@ -23,7 +23,6 @@ export default function Test() {
             Etiam turpis ultrices rutrum libero curae; natoque, sed malesuada accumsan mollis. Quis per in duis integer sem massa justo commodo. Porttitor potenti leo, venenatis pharetra consectetur natoque consectetur bibendum convallis in rutrum. Nulla integer tempus rhoncus sodales maecenas eros aliquam laoreet venenatis bibendum libero hac! Rhoncus duis purus nunc quisque laoreet condimentum metus accumsan pellentesque cum. Tortor pharetra egestas donec eu.
         </p>
         <Button color="primary" className='m-2' onClick={() => setButtonPopup(true)}>
-        {/*  */}
             <i className='fa fa-pencil fa-lg'></i> Send Link
         </Button>
         <SendLink trigger={buttonPopup} setTrigger={setButtonPopup} decideBy="tommorow"/>
