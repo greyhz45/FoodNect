@@ -20,8 +20,8 @@ function RenderResto({resto, index}) {
                         <CardTitle className="cardTitle" tag="h5">{resto.name}</CardTitle>
 
                         {resto.hrsoperation !== "" ?
-                            <Badge color="success" pill>Open Now</Badge>
-                        :   <Badge color="danger" pill>Closed</Badge>}
+                            <Badge variant="success" pill>Open Now</Badge>
+                        :   <Badge variant="danger" pill>Closed</Badge>}
 
                         <CardText className="cardText"><span>Restaurant Type: </span> {resto.type}</CardText>
                         <CardText className="cardText"><span>Complete Address: </span> {resto.address}</CardText>

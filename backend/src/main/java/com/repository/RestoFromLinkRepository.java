@@ -5,7 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 import com.entities.RestoFromLink;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RestoFromLinkRepository extends JpaRepository<RestoFromLink, Integer> {
     List<RestoFromLink> findByLinkId(int linkId);
 

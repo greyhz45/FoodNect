@@ -13,6 +13,9 @@ public class RestoFromLinkServices {
     @Autowired
     RestoFromLinkRepository restoFromLinkRepository;
 
+    public RestoFromLinkServices() {
+    }
+
     public List<RestoFromLink> findRestosByLinkId(int linkId) {
         return restoFromLinkRepository.findByLinkId(linkId);
     }
