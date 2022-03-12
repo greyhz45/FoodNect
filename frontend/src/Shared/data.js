@@ -2,7 +2,7 @@ export const RESTOS = [
     {
       id: 0,
       name: 'Vic Resto',
-      image: 'single_resto_view_thumbsup_down.PNG',
+      image: 'images/not-found-404.svg',
       type: 'Fine Dining',
       address: '324 St., MA',
       openfr: '7:00 AM',
@@ -12,7 +12,7 @@ export const RESTOS = [
     {
       id: 1,
       name: 'Jasper Resto',
-      image: 'single_resto_view_thumbsup_down.PNG',
+      image: 'images/not-found-404.svg',
       type: 'Fast Food',
       address: '4543 St., AL',
       hrsoperation: '',
@@ -21,7 +21,7 @@ export const RESTOS = [
     {
       id: 2,
       name: 'Surendra Resto',
-      image: 'single_resto_view_thumbsup_down.PNG',
+      image: 'images/not-found-404.svg',
       type: 'Fine Dining',
       address: '5446 St., AL',
       hrsoperation: '7PM to 9PM',
@@ -30,7 +30,7 @@ export const RESTOS = [
     {
       id: 3,
       name: 'Grace Resto',
-      image: 'single_resto_view_thumbsup_down.PNG',
+      image: 'images/not-found-404.svg',
       type: 'Carinderia',
       address: '123 St., VA',
       hrsoperation: '7PM to 9PM',
