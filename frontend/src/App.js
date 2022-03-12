@@ -11,7 +11,6 @@ function App(){
     <>
       <BrowserRouter>
           <HeaderWraperComponent />
-
           <WraperContainer />
 
           <FooterComponent />

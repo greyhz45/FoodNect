@@ -6,6 +6,9 @@ import SignupPage from "./SignupPage";
 import { Routes, Route } from "react-router-dom";
 import TermsAndConditions from "../components/TermsAndConditions";
 import NotFound404 from "./NotFound404";
+import ViewResto from "../components/ViewRestoComponent"
+import SearchResto from "../components/SearchRestoComponent"
+import {RESTOS} from "../Shared/data.js";
 
 
 function WraperContainer() {
@@ -22,6 +25,8 @@ function WraperContainer() {
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} /> 
         <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/foodnect/restaurants/view" element={<ViewResto restaurants={RESTOS}  />} />
+        <Route path="/search" element={<SearchResto />} />
 
 
         <Route path="*" element={<NotFound404 />} />
