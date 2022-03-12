@@ -1,18 +1,25 @@
 package com.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Set;
 
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
 @Data
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name="link_tbl")
 public class LinkInvite {
+
+    @OneToMany
+    @JoinColumn(name = "linkId")
+    private Set<RestoFromLink> restoFromLinkSet;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(name="id")

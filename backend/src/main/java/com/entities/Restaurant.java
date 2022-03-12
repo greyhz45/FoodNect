@@ -1,32 +1,39 @@
 package com.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalTime;
+import java.util.Set;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name="restaurant_tbl")
 
 public class Restaurant {
+
+    @OneToMany
+    @JoinColumn(name = "id")
+    private Set<RestoFromLink> restoFromLinkSet;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(name="id")
     private int id;
     private String restaurantName;
-    private int restaurantType;
+    private String restaurantType;
     private String completeAddress;
     private String zipCode;
     private String city;
     private String imagePath;
     private String telnum;
     private Boolean isVegan;
-    private long openFrom;
-    private long openTo;
+    private String description;
+    private LocalTime openFrom;
+    private LocalTime openTo;
 }

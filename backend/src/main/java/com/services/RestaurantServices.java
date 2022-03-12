@@ -13,6 +13,9 @@ public class RestaurantServices {
     @Autowired
     RestaurantRepository restaurantRepository;
 
+    public RestaurantServices() {
+    }
+
     public List<Restaurant> findRestaurantsByZipCode(String zipCode) {
         return restaurantRepository.findByZipCode(zipCode);
     }
@@ -27,5 +30,13 @@ public class RestaurantServices {
 
     public List<Restaurant> findRestaurantsByCityContaining(String city) {
         return restaurantRepository.findByCityContaining(city);
+    }
+
+    public List<Restaurant> findRestaurantsByCompleteAddressContaining(String completeAddress) {
+        return restaurantRepository.findByCompleteAddressContaining(completeAddress);
+    }
+
+    public List<Restaurant> displayAll() {
+        return restaurantRepository.findAll();
     }
 }
