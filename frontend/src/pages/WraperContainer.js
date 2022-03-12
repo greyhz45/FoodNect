@@ -5,6 +5,7 @@ import LoginPage from "./LoginPage";
 import SignupPage from "./SignupPage";
 import { Routes, Route } from "react-router-dom";
 import TermsAndConditions from "../components/TermsAndConditions";
+import Test from "../components/TestComponent";
 import NotFound404 from "./NotFound404";
 
 
@@ -22,7 +23,7 @@ function WraperContainer() {
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} /> 
         <Route path="terms-and-conditions" element={<TermsAndConditions />} />
-
+        <Route path="test" element={<Test />} />
 
         <Route path="*" element={<NotFound404 />} />
       </Routes>
