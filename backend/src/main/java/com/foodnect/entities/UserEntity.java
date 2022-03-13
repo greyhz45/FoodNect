@@ -1,4 +1,4 @@
-package com.entities;
+package com.foodnect.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
