@@ -165,5 +165,19 @@
         </Routes>
     </BrowserRouter>
 
-9. 
+9. Resolve merge conflicts
+    Step 1. Fetch the changes
+    git fetch origin
+    git checkout -b "surendra" "origin/surendra"
+    
+    Step 2. Review the changes locally
+    
+    Step 3. Merge the branch and fix any conflicts that come up
+    git fetch origin
+    git checkout "main"
+    git merge --no-ff "surendra"
+   
+    Step 4. Push the result of the merge to GitLab
+
+    git push origin "main"
 
