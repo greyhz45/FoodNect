@@ -1,8 +1,7 @@
-package com.controller;
+package com.foodnect.controller;
 
-import com.entities.LinkInvite;
-import com.repository.LinkInviteRepository;
-import com.services.LinkInviteServices;
+import com.foodnect.entities.LinkInvite;
+import com.foodnect.services.LinkInviteServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +10,7 @@ import java.util.List;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
-@RequestMapping("/foodnect/linkinvite")
+@RequestMapping("/api/linkinvite")
 @PreAuthorize("isAuthenticated()")
 public class LinkInviteController {
 

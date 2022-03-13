@@ -1,11 +1,12 @@
-package com.services;
+package com.foodnect.services;
 
-import com.entities.Restaurant;
-import com.repository.RestaurantRepository;
+import com.foodnect.entities.Restaurant;
+import com.foodnect.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantServices {
@@ -38,5 +39,9 @@ public class RestaurantServices {
 
     public List<Restaurant> displayAll() {
         return restaurantRepository.findAll();
+    }
+
+    public Optional<Restaurant> displayById(Integer id) {
+        return restaurantRepository.findById(id);
     }
 }

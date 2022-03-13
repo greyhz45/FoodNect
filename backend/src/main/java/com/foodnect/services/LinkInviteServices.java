@@ -1,7 +1,7 @@
-package com.services;
+package com.foodnect.services;
 
-import com.entities.LinkInvite;
-import com.repository.LinkInviteRepository;
+import com.foodnect.entities.LinkInvite;
+import com.foodnect.repository.LinkInviteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +13,7 @@ public class LinkInviteServices {
     @Autowired
     LinkInviteRepository linkInviteRepository;
 
-    public LinkInviteServices() {
-    }
+
 
     public List<LinkInvite> findLinkInviteByLinkId(String linkId) {
         return linkInviteRepository.findByLinkId(linkId);

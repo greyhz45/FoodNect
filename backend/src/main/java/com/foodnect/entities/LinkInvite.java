@@ -1,24 +1,21 @@
-package com.entities;
+package com.foodnect.entities;
 
-import lombok.*;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name="link_tbl")
 public class LinkInvite {
-
-    @OneToMany
-    @JoinColumn(name = "linkId")
-    private Set<RestoFromLink> restoFromLinkSet;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,4 +25,8 @@ public class LinkInvite {
     private String recipient;
     private LocalDate expirationDate;
     private String link;
+
+    @OneToMany
+    @JoinColumn(name = "linkId")
+    private Set<RestoFromLink> restoFromLinkSet;
 }

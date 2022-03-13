@@ -7,6 +7,24 @@ import { Link } from 'react-router-dom';
 import '../css/ViewResto.css'
 
 function RenderResto({resto, index}) {
+
+    function validateTime() {
+        console.log("validate time");
+        const today = new Date();
+        const convTime = (today.getHours() * 3600) + (today.getMinutes() * 60);
+        console.log("convTime: " + convTime)
+
+        const openFromTime = new Date("2000-01-01 " + resto.openFrom);
+        const convOpenFrom = (openFromTime.getHours() * 3600) + (openFromTime.getMinutes() * 60);
+        console.log("convOpenFrom: " + convOpenFrom)
+
+        const openToTime = new Date("2000-01-01 " + resto.openTo);
+        const convOpenTo = (openToTime.getHours() * 3600) + (openToTime.getMinutes() * 60);
+        console.log("convOpenTo: " + convOpenTo)
+
+        return ((convTime >= convOpenFrom) && (convTime <= convOpenTo)) ? true : false;
+    }
+
    
     if (resto !== null) {
         return (
@@ -19,13 +37,15 @@ function RenderResto({resto, index}) {
 
                         <CardTitle className="cardTitle" tag="h5">{resto.name}</CardTitle>
 
-                        {resto.hrsoperation !== "" ?
-                            <Badge variant="success" pill>Open Now</Badge>
-                        :   <Badge variant="danger" pill>Closed</Badge>}
+
+
+                        {validateTime() ?
+                            <Badge className="pill-open" pill bg="success" text="dark" variant="light">Open Now</Badge>
+                        :   <Badge className="pill-closed" pill bg="warning" variant="danger">Closed</Badge>}
 
                         <CardText className="cardText"><span>Restaurant Type: </span> {resto.type}</CardText>
                         <CardText className="cardText"><span>Complete Address: </span> {resto.address}</CardText>
-                        <CardText className="cardText"><span>Hours of Operation: </span> {resto.hrsoperation}</CardText>
+                        <CardText className="cardText"><span>Hours of Operation: </span> {resto.openFrom} to {resto.openTo}</CardText>
                 
                         {resto.telnum !== "" ? 
                             <>

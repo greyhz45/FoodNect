@@ -5,8 +5,12 @@ function Test1 () {
 
         const procDate = () => {
             const tme = "11:30"
-            const d = new Date(0,0,0,tme);
-            console.log((d.getHours() * 3600) + (d.getMinutes() * 60));
+            const e = new Date("2000-01-01 " + tme);
+            const d = new Date();
+            const j = (d.getHours() * 3600) + (d.getMinutes() * 60);
+            console.log("test1: " + j);
+
+            console.log("e: " + e.getHours());
         }
 
         return (

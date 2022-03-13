@@ -1,9 +1,9 @@
-package com.repository;
+package com.foodnect.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-import com.entities.LinkInvite;
+import com.foodnect.entities.LinkInvite;
 import org.springframework.stereotype.Repository;
 
 @Repository

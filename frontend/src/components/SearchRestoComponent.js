@@ -61,6 +61,7 @@ render() {
                     <Col>
 
                        <Button className="mr-2" type="submit" color="primary">Search</Button>
+                       {console.log("from file: " + this.state.randomJson)}
                     </Col>
                </Row>
            </LocalForm>

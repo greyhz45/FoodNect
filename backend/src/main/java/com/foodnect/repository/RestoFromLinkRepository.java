@@ -1,10 +1,10 @@
-package com.repository;
+package com.foodnect.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-import com.entities.RestoFromLink;
+import com.foodnect.entities.RestoFromLink;
 import org.springframework.stereotype.Repository;
 
 @Repository

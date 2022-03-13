@@ -1,19 +1,15 @@
-package com.controller;
+package com.foodnect.controller;
 
-import com.entities.LinkInvite;
-import com.entities.RestoFromLink;
-import com.repository.LinkInviteRepository;
-import com.repository.RestoFromLinkRepository;
-import com.services.RestoFromLinkServices;
+import com.foodnect.entities.RestoFromLink;
+import com.foodnect.services.RestoFromLinkServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
-@RequestMapping("/foodnect/restofromlink")
+@RequestMapping("/api/link")
 public class RestoFromLinkController {
 
     @Autowired

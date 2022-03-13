@@ -1,7 +1,7 @@
-package com.services;
+package com.foodnect.services;
 
-import com.entities.RestoFromLink;
-import com.repository.RestoFromLinkRepository;
+import com.foodnect.entities.RestoFromLink;
+import com.foodnect.repository.RestoFromLinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
