@@ -17,7 +17,7 @@ export default function HeaderAuthenticatedComponent() {
             <li>
                 <FaCalendarAlt />
             </li>
-            <li style={{transform: "rotate(90deg)"}}>
+            <li style={{transform: "rotate(90deg)", display: "none"}}>
                 <FaSlidersH />
             </li>
         </ul>
