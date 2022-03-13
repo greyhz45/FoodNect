@@ -5,19 +5,25 @@ import { BrowserRouter } from "react-router-dom";
 import HeaderWraperComponent from "./components/HeaderWraperComponent";
 import WraperContainer from "./pages/WraperContainer";
 import FooterComponent from "./components/FooterComponent";
-import LikeDislike from "./components/LikeDislike";
+import {AuthProvider} from "./context/AuthContext";
 
 function App(){
+
+  
+
   return (
     <>
+    <AuthProvider>
+      
       <BrowserRouter>
-          <HeaderWraperComponent />
+        <HeaderWraperComponent />
 
-          <WraperContainer />
-        <LikeDislike />
+        <WraperContainer />
 
-          <FooterComponent />
+        <FooterComponent />
       </BrowserRouter>
+
+      </AuthProvider>
     </>
   );
 }

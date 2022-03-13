@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FormWraper = (props) => {
-    //{props.childre} allows rendering of whatever children elements are placed inside this component
+    //{props.children} allows rendering of whatever children elements are placed inside this component
     //i.e.  <FormWraper>
     //          <div>
     //              <p>this is child inside the custom wraper container componnet.
