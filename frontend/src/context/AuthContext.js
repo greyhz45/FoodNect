@@ -1,6 +1,3 @@
-//by default context hook passes props down from parent to child
-//in order to reverse the flow of prop we need "custom hook"
-
 import React, { useState, createContext } from "react";
 
 //context creation should be outside the provider function
