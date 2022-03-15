@@ -5,8 +5,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode> //show strict errors
+  //  ... ...
+  //</React.StrictMode>
+  <React.Fragment>
     <App />
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );

@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import {Button, Row, Col, Label } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
-
 import styles from './SendLinkComponent.css';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
-
-
-
 
 function RenderGuestLinks(props) {
 

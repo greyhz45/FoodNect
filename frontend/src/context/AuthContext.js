@@ -4,10 +4,20 @@ import React, { useState, createContext } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
-  const [jwtToken, setJwtToken] = useState({});
+  
+  const [jwtToken, setJwtToken] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showSearchBox, setShowSearchBox] = useState(true);
+  const [restoLink, setRestoLink] = useState([]);
 
   return (
-    <AuthContext.Provider value={{jwtToken, setJwtToken}}>
+    <AuthContext.Provider value={
+      {
+        jwtToken, setJwtToken, 
+        isAuthenticated, setIsAuthenticated,
+        restoLink, setRestoLink
+        }
+      }>
         {children}
     </AuthContext.Provider>
   )

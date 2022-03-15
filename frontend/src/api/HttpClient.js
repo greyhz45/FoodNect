@@ -6,7 +6,8 @@ const HttpClient =
     axios.create({
         baseURL: endpoints.BASE_URL,
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
         }
     }) 
 

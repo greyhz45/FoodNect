@@ -3,25 +3,20 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 2px;
-    padding: 0;
-}
-
-body {
-    margin: 2rem;
+  box-sizing: border-box;
+  padding: 0;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
-    grid-gap: 2em;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  grid-gap: 2em;
+  justify-content: center;
 }
 
 .card {
   overflow: hidden;
-  box-shadow: 10px 10px 30px rgba(0,0,0,0,a);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0, a);
   border-radius: 0.2rem;
   display: flex;
   flex-direction: column;
@@ -31,48 +26,47 @@ body {
 }
 
 .pill-open {
-    background: green;
+  background: green;
 }
 
 .pill-closed {
-    background: red;
+  background: red;
 }
 
 .cardImg {
-    height: 12rem;
-    width: 100%;
-    object-fit: cover;
+  height: 12rem;
+  width: 100%;
+  object-fit: cover;
 }
 
 .cardTitle {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .cardText {
-    padding: 0 1rem;
+  padding: 0 1rem;
 }
 
 .cardButton {
-    padding: 1rem;
-    font-family: inherit;
-    font-weight: bold;
-    font-size: 1rem;
-    margin: 1rem;
-    border: 2px solid #d50000;
-    background: transparent;
-    color: #d50000;
-    border-radius: 0.2rem;
-    transition: background 200ms ease-in, color 200ms ease-in;
+  padding: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 1rem;
+  border: 2px solid #d50000;
+  background: transparent;
+  color: #d50000;
+  border-radius: 0.2rem;
+  transition: background 200ms ease-in, color 200ms ease-in;
 }
 
 .card:hover {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .cardButton:hover {
-    background: #d50000;
-    color: white;
+  background: #d50000;
+  color: white;
 }
 
 /* end **/
-
