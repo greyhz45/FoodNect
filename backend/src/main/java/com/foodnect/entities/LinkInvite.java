@@ -10,9 +10,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
-@NoArgsConstructor
 @Data
-@AllArgsConstructor
 @Entity
 @Table(name="link_tbl")
 public class LinkInvite {

@@ -79,7 +79,7 @@ export default class ViewResto extends Component {
     }
 
     handleSubmit(values) {
-        const filteredResto = this.props.restaurants.filter(resto => {return resto.type === values.restoType} )
+        const filteredResto = this.state.resto.filter(resto => {return resto.type === values.restoType} )
         this.setState({resto: filteredResto});
         console.log("this.state.resto.length: " + this.state.resto.length)
         console.log("this.state.filteredresto.length: " + filteredResto.length)

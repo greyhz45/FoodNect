@@ -9,8 +9,6 @@ import javax.persistence.*;
 
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name="voting_tbl")
 public class RestoFromLink {
@@ -33,4 +31,59 @@ public class RestoFromLink {
     @JoinColumn(name = "linkId", insertable = false, updatable = false)
     LinkInvite linkInvite;
 
+    public int getTestId() {
+        return testId;
+    }
+
+    public void setTestId(int testId) {
+        this.testId = testId;
+    }
+
+    public int getLinkId() {
+        return linkId;
+    }
+
+    public void setLinkId(int linkId) {
+        this.linkId = linkId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getThumbsUp() {
+        return thumbsUp;
+    }
+
+    public void setThumbsUp(int thumbsUp) {
+        this.thumbsUp = thumbsUp;
+    }
+
+    public int getThumbsDown() {
+        return thumbsDown;
+    }
+
+    public void setThumbsDown(int thumbsDown) {
+        this.thumbsDown = thumbsDown;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public LinkInvite getLinkInvite() {
+        return linkInvite;
+    }
+
+    public void setLinkInvite(LinkInvite linkInvite) {
+        this.linkInvite = linkInvite;
+    }
 }

@@ -10,7 +10,6 @@ import java.util.Set;
 @Entity
 @Table(name="restaurant_tbl")
 @Data
-@NoArgsConstructor
 
 public class Restaurant {
 
@@ -48,5 +47,8 @@ public class Restaurant {
         this.openFrom = openFrom;
         this.openTo = openTo;
         this.restoFromLinkSet = restoFromLinkSet;
+    }
+
+    public Restaurant() {
     }
 }

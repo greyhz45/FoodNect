@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/api/linkinvite")
-@PreAuthorize("isAuthenticated()")
+@RequestMapping("/api/link-nvite")
 public class LinkInviteController {
 
     @Autowired

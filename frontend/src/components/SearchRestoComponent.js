@@ -1,54 +1,42 @@
-import React, { Component } from "react";
+import React, { useState, useContext } from "react";
+import { SearchContext } from '../context/SearchContext'
 import { Card, CardImg, CardImgOverlay,
     CardTitle, CardBody, CardText, Breadcrumb, BreadcrumbItem, Input, Badge } from 'reactstrap';
 import { Container, Button, Label, Col, Row } from 'reactstrap';
 import { Control, Form, Errors, LocalForm } from 'react-redux-form';
 import { Link } from 'react-router-dom';
+import axios from "axios";
+
+import Service from "../api/Services";
 
 const validSearchString = (val) => /^[A-Z0-9]/i.test(val);
 
-export default class SearchResto extends Component {
+function SearchResto() {
+//    const { setResto } = useContext(SearchContext);
 
-constructor(props) {
-    super(props);
-    this.state = {
-        restaurants: this.props.restaurants,
-        randomJson: null,
-        isLoaded: false,
-        resto: null
-    }
-    this.handleSubmit = this.handleSubmit.bind(this);
-}
 
-handleSubmit(values) {
+const handleSubmit = (values) => {
 
-    console.log("handle sub enter")
-    console.log("values.searchField: " + values.searchField)
-    console.log("validSearchString(values.searchField): " + validSearchString(values.searchField))
-    console.log(new Date())
+    {console.log("before fetch api")}
 
     if(validSearchString(values.searchField)) {
 
-        fetch(`http://localhost:8081/foodnect/restaurants/search?completeAddress=${values.searchField}`,
-            {mode: 'no-cors'})
+        fetch(`http://localhost:8080/api/restaurants/search?completeAddress=${values.searchField}`,
+                      {mode: 'no-cors', headers: {'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncmFjZSIsImV4cCI6MTY0NzMwNTM2OCwiaWF0IjoxNjQ3MzA0NDY4fQ.6xU57h_S3eUYPcY4uNLmxfAePnB09pqZobCp58-s7go'}})
                     .then((res) => res.json())
                     .then((json) => {
-                        this.setState({
-                            randomJson: json,
-                            isLoaded: true
-                        });
+
+                        console.log("json: " + json);
                     })
     } else {
         alert("Invalid search string entered!");
     }
 }
 
-render() {
-
     return (
         <Container>
 
-           <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+           <LocalForm onSubmit={(values) => handleSubmit(values)}>
                <Row>
                     <Col>
                         <Label>Search by zip code or city:</Label>
@@ -61,7 +49,7 @@ render() {
                     <Col>
 
                        <Button className="mr-2" type="submit" color="primary">Search</Button>
-                       {console.log("from file: " + this.state.randomJson)}
+
                     </Col>
                </Row>
            </LocalForm>
@@ -69,5 +57,7 @@ render() {
 
         </Container>
     );
+
 }
-}
+
+export default SearchResto;

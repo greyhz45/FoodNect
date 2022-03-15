@@ -5,16 +5,25 @@ import { BrowserRouter } from "react-router-dom";
 import HeaderWraperComponent from "./components/HeaderWraperComponent";
 import WraperContainer from "./pages/WraperContainer";
 import FooterComponent from "./components/FooterComponent";
+import {AuthProvider} from "./context/AuthContext";
 
 function App(){
+
+  
+
   return (
     <>
+    <AuthProvider>
+      
       <BrowserRouter>
-          <HeaderWraperComponent />
-          <WraperContainer />
+        <HeaderWraperComponent />
 
-          <FooterComponent />
+        <WraperContainer />
+
+        <FooterComponent />
       </BrowserRouter>
+
+      </AuthProvider>
     </>
   );
 }

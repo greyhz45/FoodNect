@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/link")
 public class RestoFromLinkController {
@@ -17,16 +17,16 @@ public class RestoFromLinkController {
 
     @GetMapping("/search/{linkId}")
     public List<RestoFromLink> findAllRestosByLinkId(@PathVariable int linkId) {
-        return restoFromLinkServices.findRestosByLinkId(linkId);
+        return restoFromLinkServices.findRestaurantByLinkId(linkId);
     }
 
     @GetMapping("/search/{linkId}/{id}")
     public RestoFromLink findRestoByLinkIdAndId(@PathVariable int linkId, @PathVariable int id) {
-        return restoFromLinkServices.findRestoByLinkIdAndId(linkId, id);
+        return restoFromLinkServices.findRestaurantByLinkIdAndId(linkId, id);
     }
 
     @PutMapping("")
     public RestoFromLink updateResto(@RequestBody RestoFromLink restoFromLink) {
-        return restoFromLinkServices.updateRestoFromLink(restoFromLink);
+        return restoFromLinkServices.updateRestaurantFromLink(restoFromLink);
     }
 }

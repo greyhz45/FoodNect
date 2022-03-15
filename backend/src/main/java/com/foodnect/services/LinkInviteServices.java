@@ -13,8 +13,6 @@ public class LinkInviteServices {
     @Autowired
     LinkInviteRepository linkInviteRepository;
 
-
-
     public List<LinkInvite> findLinkInviteByLinkId(String linkId) {
         return linkInviteRepository.findByLinkId(linkId);
     }

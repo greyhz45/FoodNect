@@ -9,31 +9,29 @@ import java.util.List;
 
 @Service
 public class RestoFromLinkServices {
-
     @Autowired
     RestoFromLinkRepository restoFromLinkRepository;
 
-    public RestoFromLinkServices() {
-    }
-
-    public List<RestoFromLink> findRestosByLinkId(int linkId) {
+    public List<RestoFromLink> findRestaurantByLinkId(int linkId) {
         return restoFromLinkRepository.findByLinkId(linkId);
     }
 
-    public RestoFromLink findRestoByLinkIdAndId(int linkId, int id) {
+    public RestoFromLink findRestaurantByLinkIdAndId(int linkId, int id) {
         return restoFromLinkRepository.findByLinkIdAndId(linkId, id);
     }
 
-    public RestoFromLink updateRestoFromLink(RestoFromLink restoFromLink) {
+    //is it save to db api?
+    public RestoFromLink updateRestaurantFromLink(RestoFromLink restoFromLink) {
 
-        List<RestoFromLink> sameLinkIdlist = findRestosByLinkId(restoFromLink.getLinkId());
-
+        List<RestoFromLink> sameLinkIdlist = findRestaurantByLinkId(restoFromLink.getLinkId());
         RestoFromLink newRestoFromLink = sameLinkIdlist.get(restoFromLink.getId());
 
         newRestoFromLink.setId(restoFromLink.getId());
         newRestoFromLink.setThumbsUp(restoFromLink.getThumbsUp());
         newRestoFromLink.setThumbsDown(restoFromLink.getThumbsDown());
-
+        
+        restoFromLinkRepository.save(newRestoFromLink);
+        //if yes, where is save code?
         return newRestoFromLink;
     }
 }
