@@ -101,9 +101,9 @@ function RenderDecideDate(props) {
 
 /**
  * props: 
- *  @boolean {trigger} makes the popup display or not
- *  @function {setTrigger} lets SendLink edit 'trigger' from the inside
- *  @string {baseUrl} need this so we know where to send the data
+ *  @property {boolean} 'trigger' makes the popup display or not
+ *  @property {function} 'setTrigger' lets SendLink edit 'trigger' from the inside
+ *  @property {string} 'baseUrl' need this so we know where to send the data
  *  @example
  *      it will POST this to server
  * 
@@ -114,6 +114,7 @@ function RenderDecideDate(props) {
             decideDate: decideDate,
             id: index
         }
+    @property {array} 'restaurants' needs an array of resturant ID's
  */
 
 export default class SendLink extends Component {
@@ -175,17 +176,18 @@ export default class SendLink extends Component {
             + 'date is: ' + this.state.decideDate + '\n' 
             + 'index is ' + guestIndex);
         //event.preventDefault();
-        this.postLink(value, this.state.decideDate, guestIndex, this.props.baseUrl);
+        this.postLink(value, this.state.decideDate, guestIndex, this.props.baseUrl, this.props.restaurants);
 
     }
 
-    postLink = (value, decideDate, index, baseUrl) => {
+    postLink = (value, decideDate, index, baseUrl, restaurants) => {
         const newLink = {
             name: value.name,
             username: value.username,
             email: value.email,
             decideDate: decideDate,
-            id: index
+            id: index,
+            restaurants: restaurants
         }
 
         return fetch(baseUrl, {
