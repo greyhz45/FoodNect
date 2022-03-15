@@ -25,7 +25,7 @@ export default function Test() {
         <Button color="primary" className='m-2' onClick={() => setButtonPopup(true)}>
             <i className='fa fa-pencil fa-lg'></i> Send Link
         </Button>
-        <SendLink trigger={buttonPopup} setTrigger={setButtonPopup} decideBy="tommorow"/>
+        <SendLink trigger={buttonPopup} setTrigger={setButtonPopup} decideBy="tommorow" baseUrl='https://localhost:3001/links'/>
     </>
   )
 }

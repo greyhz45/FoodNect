@@ -31,7 +31,7 @@ function WraperContainer() {
         <Route path="/foodnect/restaurants/view" element={<ViewResto restaurants={RESTOS}  />} />
         <Route path="/search" element={<SearchResto />} />
 
-        <Route path="/test" element={<Test1 />} />
+        <Route path="/test" element={<Test />} />
 
 
         <Route path="*" element={<NotFound404 />} />

@@ -8,17 +8,16 @@ const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
 
-
-
+/**
+ * 
+ * @param {*} props are:
+ *  @array 'rows' is how many guests there are
+ *  @function 'remove' lets you remove a row from the inside
+ *  @function 'handleSubmit'
+ * 
+ */
 
 function RenderGuestLinks(props) {
-
-    function handleSubmit(value) {
-        console.log('Current State is: ' + JSON.stringify(value));
-        alert('Current State is: ' + JSON.stringify(value));
-        //event.preventDefault();
-
-    }
     
     let guestLinks = props.rows.map( (row, index) => {
         return (
@@ -28,7 +27,7 @@ function RenderGuestLinks(props) {
                     X
                 </Button>
                 
-                <LocalForm onSubmit={(values) => handleSubmit(values)} className='container col-11'>
+                <LocalForm onSubmit={(values) => props.handleSubmit(values, index)} className='container col-11'>
                     <Row className="form-group row">
                         
                         <Col md={2}>
@@ -54,7 +53,7 @@ function RenderGuestLinks(props) {
                                 />
                         </Col>
 
-                        <Col md={3}>
+                        <Col md={2}>
                             <Control.text model=".username" id="username" name="username"
                                 placeholder="Username (optional)"
                                 className="form-control"
@@ -78,8 +77,6 @@ function RenderGuestLinks(props) {
             </div>
         )
     })
-
-    
     //console.log(guestLinks)
     return(
         <>
@@ -88,44 +85,132 @@ function RenderGuestLinks(props) {
     )
 }
 
+function RenderDecideDate(props) {
+    return(
+        <form>
+            <label>Decide by: 
+                <input 
+                    type="date"
+                    onChange={(e) => props.setDecideDate(e.target.value)}
+                />
+            </label>
+
+        </form>
+    )
+}
+
+/**
+ * props: 
+ *  @boolean {trigger} makes the popup display or not
+ *  @function {setTrigger} lets SendLink edit 'trigger' from the inside
+ *  @string {baseUrl} need this so we know where to send the data
+ *  @example
+ *      it will POST this to server
+ * 
+ *      const newLink = {
+            name: value.name,
+            username: value.username,
+            email: value.email,
+            decideDate: decideDate,
+            id: index
+        }
+ */
+
 export default class SendLink extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            inputRows:[Date.now]
+            inputRows:[Date.now],
+            decideDate: null
         };
     }
-
+////////////////////////////////////////////////////////////
+/////////////////for <RenderGuestLinks>
+////////////////////////////////////////////////////////////
     addGuestRow = () => {
         this.setState({
-            inputRows:[...this.state.inputRows, Date.now]
+            inputRows:[...this.state.inputRows, Date.now],
+            decideDate: this.state.decideDate
         });
     }
 
     removeGuestRow = (index) => {
-        //console.log(index)
-        // this.setState({
-        //     inputRows: this.state.inputRows.filter( (row, filterIndex) => {
-        //         return filterIndex !== index;
-        //     })
-        // })
         let temp = this.state.inputRows;
         temp.splice(index,1);
         this.setState({
-            inputRows: temp
+            inputRows: temp,
+            decideDate: this.state.decideDate
         })
     }
 
     resetGuest = () => {
         this.setState({
-            inputRows:[""]
+            inputRows:[""],
+            decideDate: this.state.decideDate
+        });
+    }
+////////////////////////////////////////////////////////////
+/////////////////for <RenderDateSelect>
+////////////////////////////////////////////////////////////
+    setDecideDate = (date) => {
+        console.log(this.state.inputRows);
+        this.setState({
+            inputRows:this.state.inputRows,
+            decideDate: date
         });
     }
 
+////////////////////////////////////////////////////////////
+/////////////////general functions
+////////////////////////////////////////////////////////////
     handleClose = () => {
         this.props.setTrigger(false)
         this.resetGuest();
+    }
+
+    handleSubmit = (value, guestIndex) => {
+        console.log(`Current State is:  name ${value.name} username ${value.username} name ${value.email}`);
+        alert('Current State is: ' + JSON.stringify(value) + '\n' 
+            + 'date is: ' + this.state.decideDate + '\n' 
+            + 'index is ' + guestIndex);
+        //event.preventDefault();
+        this.postLink(value, this.state.decideDate, guestIndex, this.props.baseUrl);
+
+    }
+
+    postLink = (value, decideDate, index, baseUrl) => {
+        const newLink = {
+            name: value.name,
+            username: value.username,
+            email: value.email,
+            decideDate: decideDate,
+            id: index
+        }
+
+        return fetch(baseUrl, {
+            method: "POST",
+            body: JSON.stringify(newLink),
+            headers: {
+              "Content-Type": "application/json"
+            },
+            credentials: "same-origin"
+        })
+        .then(response => {
+            if (response.ok) {
+              return response;
+            } else {
+              var error = new Error('Error ' + response.status + ': ' + response.statusText);
+              error.response = response;
+              throw error;
+            }
+          },
+          error => {
+                throw error;
+          })
+        .then(response => response.json())
+        .catch(error =>  { console.log('POST links', error.message); alert('Your invite could not be sent\nError: '+error.message); });
+
     }
 
     render() {
@@ -140,15 +225,15 @@ export default class SendLink extends Component {
                     </div>
                     <div className='row'>
                         <h3 className='col-8 offset-4'>
-                            Decide by: {this.props.decideBy}
+                            <RenderDecideDate setDecideDate={this.setDecideDate}/>
                         </h3>
-                        <RenderGuestLinks className='col-12' rows={this.state.inputRows} remove={this.removeGuestRow}/>
+                        <RenderGuestLinks className='col-12' rows={this.state.inputRows} remove={this.removeGuestRow} handleSubmit={this.handleSubmit}/>
                         <Button className='col-12' onClick={this.addGuestRow} >add guest</Button>
-                        <p className='col-12 col-md-6'>
-                            Nulla libero, habitant nisl nisi. Tortor neque mattis mollis! Nam fringilla viverra sociis nec. Erat laoreet mauris gravida diam molestie justo dictum porta. Consequat orci dis dui. Rhoncus porttitor consequat consectetur dolor dapibus sodales nascetur auctor aenean ridiculus integer. Porttitor ultricies morbi neque dolor a dignissim libero fames maecenas, proin vel. Commodo rhoncus nam potenti himenaeos congue arcu risus nisl nec convallis ut posuere. Arcu magna.
+                        <p className='col-12 col-md-5'>
+                            Instructions
                         </p>
-                        <p className='col-12 col-md-6'>
-                            Etiam turpis ultrices rutrum libero curae; natoque, sed malesuada accumsan mollis. Quis per in duis integer sem massa justo commodo. Porttitor potenti leo, venenatis pharetra consectetur natoque consectetur bibendum convallis in rutrum. Nulla integer tempus rhoncus sodales maecenas eros aliquam laoreet venenatis bibendum libero hac! Rhoncus duis purus nunc quisque laoreet condimentum metus accumsan pellentesque cum. Tortor pharetra egestas donec eu.
+                        <p className='col-12 col-md-5'>
+                            Instructions    
                         </p>
                     </div>
                     
