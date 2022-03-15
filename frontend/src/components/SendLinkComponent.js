@@ -112,7 +112,8 @@ function RenderDecideDate(props) {
             username: value.username,
             email: value.email,
             decideDate: decideDate,
-            id: index
+            id: index,
+            restaurants: restaurants
         }
     @property {array} 'restaurants' needs an array of resturant ID's
  */
