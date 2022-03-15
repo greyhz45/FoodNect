@@ -40,9 +40,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
             .csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and().cors()
             .and()
             .addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class)
-            .authorizeRequests().antMatchers("/api/authenticate", "/api/new-user").permitAll()
+            .authorizeRequests().antMatchers("/api/authenticate", "/api/new-user", "/api/restaurants/**").permitAll()
             .anyRequest().authenticated();  //basically all endpoints are secured except "/api/authenticate"
     }
 

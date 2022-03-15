@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin    //(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/link-nvite")
 public class LinkInviteController {

@@ -18,7 +18,7 @@ import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000") //allow react //@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin    //(origins = "*") //allow react //@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api")
 public class UserController {
